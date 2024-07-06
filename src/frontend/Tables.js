@@ -15,3 +15,4 @@ function Tables (head, rows, totalCount) {
       </Box>
     );
   }
+  export default Tables;
