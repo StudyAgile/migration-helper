@@ -12,6 +12,7 @@ import ForgeReconciler, {
 } from "@forge/react";
 
 import { invoke } from "@forge/bridge";
+import Tables from "./Tables"
 
 const head = {
   cells: [
@@ -75,6 +76,11 @@ const createKey = (input) => {
         .replace(/\s/g, "")
     : input;
 };
+
+
+
+
+
 var totalIssues = 0;
 var totalUsers = 0;
 const App = () => {
@@ -85,7 +91,6 @@ const App = () => {
   useEffect(() => {
     if (context) {
       const projectId = context.extension.project.id;
-      const projectKey = context.extension.project.key;
       invoke("getIssueTypes", { projectId: projectId }).then((value) => {
         for (let index = 0; index < value.length; index++) {
           const row = JSON.stringify(value[index]).split(":");
@@ -116,34 +121,10 @@ const App = () => {
             <Tab>Users</Tab>
           </TabList>
           <TabPanel>
-            <Box>
-              <DynamicTable
-                head={head}
-                rows={issueRows ? issueRows : "Loading...."}
-                rowsPerPage={10}
-              />
-              <Text>
-                Total issues in this project:{" "}
-                <Badge appearance="primary" max={false}>
-                  {totalIssues}
-                </Badge>
-              </Text>
-            </Box>
+              <Tables head={head} rows={issueRows} totalCount={totalIssues}/>
           </TabPanel>
           <TabPanel>
-            <Box>
-              <DynamicTable
-                head={userHead}
-                rows={userRows ? userRows : "Loading...."}
-                rowsPerPage={10}
-              />
-              <Text>
-                Total Users in this project:{" "}
-                <Badge appearance="primary" max={false}>
-                  {totalUsers}
-                </Badge>
-              </Text>
-            </Box>
+              <Tables head={head} rows={userRows} totalCount={totalUsers}/>
           </TabPanel>
         </Tabs>
       </Fragment>
