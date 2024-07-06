@@ -1,0 +1,32 @@
+modules:
+  jira:projectPage:
+    - key: migration-helper
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: Migration Helper
+      icon: https://studyagile.com/wp-content/uploads/2021/09/Kiran_Logo-2x2-1.png
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  runtime:
+    name: nodejs18.x
+  id: ari:cloud:ecosystem::app/efd5600c-0e5c-4c13-9744-33f47f85e57d
+permissions:
+  scopes:
+    - read:project-role:jira
+    - read:issue-type:jira
+    - read:avatar:jira
+    - read:project-category:jira
+    - read:project:jira
+    - read:user:jira
+    - read:group:jira
+    - read:issue-details:jira
+    - read:audit-log:jira
+    - read:field-configuration:jira
+    - read:issue-meta:jira
