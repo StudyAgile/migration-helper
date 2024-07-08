@@ -1,3 +1,4 @@
+// This will return Tables Component
 function Tables (head, rows, totalCount) {
     return (
         <Box>
