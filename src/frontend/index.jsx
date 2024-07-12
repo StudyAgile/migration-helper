@@ -1,7 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import ForgeReconciler, {
-  Badge,
-  DynamicTable,
   Tabs,
   Tab,
   TabList,
@@ -115,6 +113,9 @@ const App = () => {
   return (
     <>
       <Fragment>
+        <Box>
+
+        </Box>
         <Tabs id="default">
           <TabList>
             <Tab>Issue Types</Tab>
