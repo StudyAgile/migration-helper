@@ -16,9 +16,9 @@ steps:
     displayName: "Install Node.js"
 
   - script: |
-      sudo apt install gnome-keytring
       npm install
       npm i -g @forge/cli
+      forge login -e $(FORGE_EMAIL) -t $(FORGE_TOKEN) --non-interactive
       forge settings set usage-analytics true
       forge lint
     displayName: "npm & forge install"
