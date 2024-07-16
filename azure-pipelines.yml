@@ -16,6 +16,7 @@ steps:
     displayName: "Install Node.js"
 
   - script: |
+      sudo apt install gnome-keytring
       npm install
       npm i -g @forge/cli
       forge settings set usage-analytics true
