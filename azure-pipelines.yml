@@ -18,7 +18,7 @@ steps:
   - script: |
       npm install
       npm i -g @forge/cli
-      forge login -e $(FORGE_EMAIL) -t $(FORGE_TOKEN) --non-interactive
+      forge login -u $(FORGE_EMAIL) -t $(FORGE_TOKEN) --non-interactive
       forge settings set usage-analytics true
       forge lint
     displayName: "npm & forge install"
