@@ -16,12 +16,15 @@ steps:
     displayName: "Install Node.js"
 
   - script: |
-      npm install
       npm i -g @forge/cli
       forge settings set usage-analytics true
-      forge login -u $(FORGE_EMAIL) -t $(FORGE_TOKEN) --non-interactive
+      forge login -u $FORGE_EMAIL -t $FORGE_TOKEN --non-interactive
       forge lint
-    displayName: "npm & forge install"
+    displayName: "forge install"
+  
+  - script: |
+      npm install
+    displayName: "npm package install"
 
   - script: |
       forge deploy
