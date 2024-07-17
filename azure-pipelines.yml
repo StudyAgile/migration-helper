@@ -18,7 +18,7 @@ steps:
   - script: |
       npm i -g @forge/cli
       forge settings set usage-analytics true
-      forge login -u $env:FORGE_EMAIL -t $env:FORGE_TOKEN --non-interactive
+      forge login --email $env:FORGE_EMAIL --token $env:FORGE_API_TOKEN --non-interactive
       forge lint
     displayName: "forge install"
   
