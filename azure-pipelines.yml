@@ -24,6 +24,7 @@ steps:
   
   - script: |
       npm install
+      npm audit fix --force
     displayName: "npm package install"
 
   - script: |
@@ -31,5 +32,5 @@ steps:
     displayName: "running forge deploy"
 
   - script: |
-      forge install --upgrade
+      forge install --upgrade --verbose
     displayName: "upgrading development env"
